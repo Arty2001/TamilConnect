@@ -6,13 +6,14 @@ from findRestobyGroceries import findRestobyGroceries
 
 app = Flask(__name__, template_folder="../frontend/build", static_folder="../frontend/build/static")
 
-@app.route('/') // creating website
+@app.route('/') #creating website
 def index():
     return render_template('index.html')
 
 @app.route('/api/FindResto')
 def findResto():
-    return findRestobyGroceries("Test")
+    grocery=request.args.get("grocery")
+    return findRestobyGroceries(grocery)
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(24)
