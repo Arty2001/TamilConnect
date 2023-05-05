@@ -10,7 +10,6 @@ app = Flask(__name__, template_folder="../frontend/build", static_folder="../fro
 def index():
     return render_template('index.html')
 
-
 @app.route('/api/FindResto')
 def findResto():
     return findRestobyGroceries("Test")
