@@ -2,7 +2,7 @@
 import os
 from flask import Flask, flash, request,render_template, Response, redirect, url_for, session
 from flask_cors import CORS, cross_origin
-from findRestobyGroceries import findRestobyGroceries
+from findRestobyGroceries import globalFunction
 
 app = Flask(__name__, template_folder="../frontend/build", static_folder="../frontend/build/static")
 
@@ -13,7 +13,7 @@ def index():
 @app.route('/api/FindResto')
 def findResto():
     grocery=request.args.get("grocery")
-    return findRestobyGroceries(grocery)
+    return globalFunction(grocery)
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(24)
