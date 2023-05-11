@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { HeroTitle } from "../component/WelcomeBack";
 import { DaCard } from "../component/TrendingRecipiesCard";
 import { DaCarousel } from "../component/TrendingRecipiesCarousel";
+import { ArticleCards } from "../component/GroceryItemCard";
 import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -26,12 +27,18 @@ export function Home() {
     fetchResto();
   }, [resto]);
   return (
-    <div className="homePage">
-      <HeroTitle />
+    <>
+      <div className="homePage">
+        <HeroTitle />
 
-      <p>{resto}</p>
+        {/* <p>{resto}</p> removed this idk what it does */}
 
-      <DaCarousel />
-    </div>
+        <DaCarousel />
+      </div>
+      <div>
+        {" "}
+        <ArticleCards />
+      </div>
+    </>
   );
 }
