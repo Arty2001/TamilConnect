@@ -16,7 +16,7 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function ArticleCard() {
+function InCartCard() {
   const { classes } = useStyles();
 
   return (
@@ -37,12 +37,12 @@ function ArticleCard() {
           </Badge>
         </Group>
 
-        <Button variant="light" color="green" fullWidth mt="md" radius="md">
-          Add To Cart
+        <Button variant="light" color="red" fullWidth mt="md" radius="md">
+          Remove
         </Button>
       </Card>
     </div>
   );
 }
 
-export { ArticleCard };
+export { InCartCard };

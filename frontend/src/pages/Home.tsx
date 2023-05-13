@@ -2,7 +2,11 @@ import { useState, useEffect } from "react";
 import { HeroTitle } from "../component/WelcomeBack";
 import { DaCard } from "../component/TrendingRecipiesCard";
 import { DaCarousel } from "../component/TrendingRecipiesCarousel";
-import { ArticleCards } from "../component/GroceryItemCard";
+//import { ArticleCards } from "../component/temp";
+import { ArticleCard } from "../component/GroceryItemCard";
+import { AddItemsContainer } from "../component/GroceryAddItems";
+import { InCartCard } from "../component/InCartCard";
+import { Cart } from "../component/Cart";
 import { createStyles } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
@@ -11,10 +15,18 @@ const useStyles = createStyles((theme) => ({
     flexDirection: "column",
     alignItems: "center",
   },
+  AddItemsContainer: {
+    marginTop: "40em", //this is temp to be able to see them all
+  },
+
+  Carousel: {
+    marginTop: "1em",
+  },
 }));
 
 export function Home() {
   const [resto, setResto] = useState();
+  const { classes } = useStyles();
 
   useEffect(() => {
     const fetchResto = async () => {
@@ -28,16 +40,18 @@ export function Home() {
   }, [resto]);
   return (
     <>
-      <div className="homePage">
+      <div className={classes.homePage}>
         <HeroTitle />
 
         {/* <p>{resto}</p> removed this idk what it does */}
+        <div className={classes.Carousel}>
+          <DaCarousel />
+        </div>
 
-        <DaCarousel />
-      </div>
-      <div>
-        {" "}
-        <ArticleCards />
+        <div className={classes.AddItemsContainer}>
+          <AddItemsContainer />
+        </div>
+        <Cart />
       </div>
     </>
   );

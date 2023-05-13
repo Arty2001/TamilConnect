@@ -1,12 +1,4 @@
-import {
-  createStyles,
-  Container,
-  Text,
-  Button,
-  Group,
-  rem,
-  Box,
-} from "@mantine/core";
+import { createStyles, Container, Text, rem, Box } from "@mantine/core";
 import { GithubIcon } from "@mantine/ds";
 
 const useStyles = createStyles((theme) => ({
