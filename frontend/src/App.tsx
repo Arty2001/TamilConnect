@@ -1,25 +1,27 @@
 import React from 'react';
 import { NavbarMinimal } from './component/NavbarMinimal';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import {Home} from "./pages/Home";
+import { Home } from "./pages/Home";
 import { FindPage } from "./pages/FindPage";
-import { SearchPage } from "./pages/SearchPage";
-import { Group } from '@mantine/core';
+import { Recipes } from "./pages/Recipes";
+import { Flex, MantineProvider } from '@mantine/core';
 
 function App() {
   return (
-    <div className="App">
-      <Group>
-      <BrowserRouter>
-        <NavbarMinimal />
-        <Routes>
-          <Route path="Home" element={<Home />} />
-          <Route path="FindPage" element={<FindPage />} />
-          <Route path="SearchPage" element={<SearchPage />} />
-        </Routes>
-      </BrowserRouter>
-      </Group>
-    </div>
+    <MantineProvider withGlobalStyles withNormalizeCSS>
+      <div className="App">
+        <Flex align="center">
+          <BrowserRouter>
+            <NavbarMinimal />
+            <Routes>
+              <Route path="Home" element={<Home />} />
+              <Route path="FindPage" element={<FindPage />} />
+              <Route path="Recipes" element={<Recipes />} />
+            </Routes>
+          </BrowserRouter>
+        </Flex>
+      </div>
+    </MantineProvider>
   );
 }
 

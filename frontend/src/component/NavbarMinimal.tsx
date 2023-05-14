@@ -2,9 +2,9 @@ import { Navbar, Center, Tooltip, UnstyledButton, createStyles, Stack, rem } fro
 import {
     IconFridge,
     IconGauge,
-    IconDeviceDesktopAnalytics,
     IconLogout,
     IconSwitchHorizontal,
+    IconGrillFork,
 } from '@tabler/icons-react';
 import { MantineLogo } from '@mantine/ds';
 import { useNavigate , useLocation } from "react-router-dom";
@@ -53,7 +53,7 @@ function NavbarLink({ icon: Icon, label, active, onClick }: NavbarLinkProps) {
 const mockdata = [
     { icon: IconFridge, label: 'Home' },
     { icon: IconGauge, label: 'FindPage' },
-    { icon: IconDeviceDesktopAnalytics, label: 'SearchPage' }
+    { icon: IconGrillFork, label: 'Recipes' }
 ];
 
 export function NavbarMinimal() {
