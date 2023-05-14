@@ -1,3 +1,4 @@
+import data from "../data.json";
 import {
   Card,
   Image,
@@ -16,33 +17,48 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
-function ArticleCard() {
+//let JsonString = data;
+//console.log(JsonString);
+
+export function ArticleCard() {
   const { classes } = useStyles();
+  let JsonString = data;
 
   return (
     <div className={classes.wrapper}>
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section>
-          <Image
-            src="https://th-thumbnailer.cdn-si-edu.com/qwdFU8TzPixEtFzRLC2V_Ezr2tw=/fit-in/1600x0/https%3A%2F%2Ftf-cmsv2-smithsonianmag-media.s3.amazonaws.com%2Ffiler%2Fd5%2F24%2Fd5243019-e0fc-4b3c-8cdb-48e22f38bff2%2Fistock-183380744.jpg"
-            height={160}
-            alt="Banana"
-          />
-        </Card.Section>
+      {data.map((index, key) => {
+        return (
+          <Card shadow="sm" padding="lg" radius="md" withBorder>
+            <Card.Section>
+              <Image
+                src={
+                  "https://hips.hearstapps.com/hmg-prod/images/2024-lamborghini-revuelto-127-641a1d518802b.jpg?crop=0.769xw:0.770xh;0.104xw,0.106xh&resize=1200:*"
+                }
+                height={160}
+                alt="Item"
+              />
+            </Card.Section>
 
-        <Group position="apart" mt="md" mb="xs">
-          <Text weight={500}> Banana</Text>
-          <Badge color="blue" variant="light">
-            3.99$
-          </Badge>
-        </Group>
+            <Group position="apart" mt="md" mb="xs">
+              {data.map((index, key) => {
+                return (
+                  <Text weight={500} key={key}>
+                    {" "}
+                    {index.name}
+                  </Text>
+                );
+              })}
+              <Badge color="blue" variant="light">
+                8.99
+              </Badge>
+            </Group>
 
-        <Button variant="light" color="green" fullWidth mt="md" radius="md">
-          Add To Cart
-        </Button>
-      </Card>
+            <Button variant="light" color="green" fullWidth mt="md" radius="md">
+              Add To Cart
+            </Button>
+          </Card>
+        );
+      })}
     </div>
   );
 }
-
-export { ArticleCard };

@@ -1,0 +1,54 @@
+
+[
+    {
+      "name": "lentils - பருப்பு",
+      "link": "https://cdn.shopify.com/s/files/1/0260/4895/4423/products/whole-brown-lentils.jpg?v=1588716072",
+      "price": 5.99
+    },
+    {
+        "name": "Ajwain Omam Powder – ஓமம் பொடி",
+        "link": "https://cdn.shopify.com/s/files/1/0260/4895/4423/products/ajwain-omam-powder-200g-niru-brand.jpg?v=1588961132",
+        "price": 2.79
+    },
+    {
+        "name": "MD Woodapple Jam - விளாம்பழ ஜாம் ",
+        "link": "https://cdn.shopify.com/s/files/1/0260/4895/4423/products/md-woodapple-jam_850x.jpg?v=1588187161",
+        "price": 4.99
+    },
+    {
+        "name": "Dried Chillies – செத்தல் மிளகாய் ",
+        "link": "https://cdn.shopify.com/s/files/1/0260/4895/4423/products/dried-chilli-niru-brand-100g_850x.jpg?v=1589221932",
+        "price": 2.79
+    },
+    {
+        "name": "Fennel Powder – பெருஞ்சீரக தூள்",
+        "link": "https://cdn.shopify.com/s/files/1/0260/4895/4423/products/fennel-powder-200g-niru-brand_850x.jpg?v=1588976495",
+        "price": 2.25
+    },
+    {
+        "name": "BASMATI RICE - பாசுமதி அரிசி",
+        "link": "https://www.tamilkadai.ca/image/cache/catalog/tamilkadai/product/niru-brand/rice/basmathis%20rice-10lb-nirubrand-tamilkadai%204164344440-2000x2000.jpg",
+        "price": 17.99
+    },
+    {
+        "name": "APPALAM - அப்பளம்",
+        "link": "https://www.tamilkadai.ca/image/cache/catalog/tamilkadai/2022/product/10-22/APPALAM-PAPPADAM-70G-HARICHCHANRA-TAMILKADAI.CA-4164344440-2000x2000.jpg.webp",
+        "price": 0.99
+    },
+    {
+        "name": "Tamarind Paste - பழப்புளி",
+        "link": "https://cdn.shopify.com/s/files/1/0260/4895/4423/products/tamarind-paste_850x.jpg?v=1589043538",
+        "price": 1.79
+        
+    },
+    {
+        "name": "CASSAVA - மரவள்ளி கிழங்கு",
+        "link": "https://mi.alpremium.ca/cdn/shop/products/cassava.jpg?v=1590862688",
+        "price": 2.99
+    },
+    {
+        "name": "Cinnamon - கறுவா",
+        "link": "https://cdn.shopify.com/s/files/1/0260/4895/4423/products/cinnamon-50g-vaaniy-brand_850x.jpg?v=1588973198",
+        "price": 2.59
+    }
+  ]

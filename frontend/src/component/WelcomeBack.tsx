@@ -4,13 +4,13 @@ import { GithubIcon } from "@mantine/ds";
 const useStyles = createStyles((theme) => ({
   wrapper: {
     position: "relative",
-    boxSizing: "border-box",
+    boxSizing: "content-box",
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
 
     display: "flex",
     alignItems: "center",
-    marginTop: "0px",
+    marginTop: "1px",
     width: "100%",
   },
 

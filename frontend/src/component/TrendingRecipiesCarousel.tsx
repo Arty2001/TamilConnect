@@ -5,7 +5,7 @@ import {
   DaCard3,
   DaCard4,
 } from "../component/TrendingRecipiesCard";
-import { createStyles } from "@mantine/core";
+import { createStyles, rem } from "@mantine/core";
 
 const useStyles = createStyles((theme) => ({
   cardWrapper: {
@@ -21,7 +21,7 @@ export function DaCarousel() {
     <Carousel
       className={classes.cardWrapper}
       withIndicators
-      height={500}
+      height={350}
       slideSize="33.333333%"
       slideGap="sm"
       loop

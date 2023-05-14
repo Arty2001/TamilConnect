@@ -13,6 +13,7 @@ const useStyles = createStyles((theme) => ({
     width: "100%",
     float: "right",
     display: "flex",
+    height: "100%",
   },
 }));
 
@@ -106,7 +107,8 @@ function DaCard3() {
         </Group>
 
         <Text size="sm" color="dimmed">
-          Mutton curry is a dish that is prepared from goat meat and vegetables.
+          Mutton curry is a dish that is prepared from goat meat and vegetables
+          in spicy onion tomato gravy.
         </Text>
 
         <Button variant="light" color="blue" fullWidth mt="md" radius="md">
