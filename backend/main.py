@@ -15,7 +15,13 @@ def index():
 @app.route('/api/FindResto')
 @cross_origin()
 def findResto():
-    return findRestobyGroceries("Test")
+    grocery=request.args.get("grocery")
+    return findRestobyGroceries(grocery)
+
+@app.route('/api/GetRecipes')
+@cross_origin()
+def getRecipes():
+    return findRecipesbyGroceries()
 
 @app.route('/api/GetRecipes')
 @cross_origin()

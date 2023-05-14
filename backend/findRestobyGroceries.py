@@ -1,10 +1,15 @@
+dictionaryStore={"Marche Murugan":["pineapple","chicken","apple"]} #instead of accessing index, access store name
+dictionaryResto={""}
+
 def findRestobyGroceries(grocery):
-    my_dictionary = {}
-    my_dictionary["test"]="value"
-    print (my_dictionary["test"])
-    return my_dictionary
+    list=[]
+    for resto in dictionaryStore:
+        if grocery in dictionaryStore[resto]:
+            list.append(resto)
+
+    return list 
+    
 
 
 if __name__ == "__main__":
-    print (findRestobyGroceries("Hello"))
-    
+    print(findRestobyGroceries("pineapple"))
