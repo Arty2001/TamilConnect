@@ -4,12 +4,18 @@ from flask import Flask, flash, request,render_template, Response, redirect, url
 from flask_cors import CORS, cross_origin
 from findRestobyGroceries import globalFunction
 from findRecipesbyGroceries import findRecipesbyGroceries
+from flask_session import Session
+
 
 app = Flask(__name__, template_folder="../frontend/build", static_folder="../frontend/build/static")
+SESSION_TYPE = 'filesystem'
+app.config.from_object(__name__)
+Session(app)
 
 @app.route('/') # creating website
 @cross_origin()
 def index():
+    session["groceries"] = [{"banana": False, "apple":False}]
     return render_template('index.html')
 
 @app.route('/api/FindResto')
@@ -22,6 +28,26 @@ def findResto():
 @cross_origin()
 def getRecipes():
     return findRecipesbyGroceries()
+
+@app.route('/api/groceries')
+@cross_origin()
+def addGroceries():
+    if request.method == 'POST':
+        grocery=request.args.get("grocery")
+        session[groceries][grocery]=True
+        return "Submitted"
+    if request.method == 'GET':
+        cart = request.args.get("cart", default=True, type=bool) 
+        list_return = []
+        for grocery in session[groceries]:
+            if cart: 
+                if session[groceries][grocery] == True:
+                    list_return.append(grocery)
+            else:
+                if session[groceries][grocery] == False     :
+                    list_return.append(grocery)
+        return list_return
+
 
 if __name__ == '__main__':
     app.secret_key = os.urandom(24)
