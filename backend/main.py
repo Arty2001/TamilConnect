@@ -23,11 +23,6 @@ def findResto():
 def getRecipes():
     return findRecipesbyGroceries()
 
-@app.route('/api/GetRecipes')
-@cross_origin()
-def getRecipes():
-    return findRecipesbyGroceries()
-
 if __name__ == '__main__':
     app.secret_key = os.urandom(24)
     app.run(host='0.0.0.0', port=5000, threaded=True, use_reloader=False)
