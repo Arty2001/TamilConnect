@@ -53,18 +53,8 @@ export function ModalGrocery() {
           <div className={classes.wrapper}>
             <div className={classes.rowOne}>
               <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
             </div>
             <div className={classes.rowTwo}>
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
-              <ArticleCard />
               <ArticleCard />
             </div>
           </div>
