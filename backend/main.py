@@ -2,7 +2,7 @@
 import os
 from flask import Flask, flash, request,render_template, Response, redirect, url_for, session
 from flask_cors import CORS, cross_origin
-from findRestobyGroceries import findRestobyGroceries
+from findRestobyGroceries import globalFunction
 from findRecipesbyGroceries import findRecipesbyGroceries
 
 app = Flask(__name__, template_folder="../frontend/build", static_folder="../frontend/build/static")
@@ -16,7 +16,7 @@ def index():
 @cross_origin()
 def findResto():
     grocery=request.args.get("grocery")
-    return findRestobyGroceries(grocery)
+    return globalFunction(grocery)
 
 @app.route('/api/GetRecipes')
 @cross_origin()
