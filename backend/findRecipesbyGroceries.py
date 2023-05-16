@@ -1,4 +1,4 @@
-def findRecipesbyGroceries():
+def findRecipesbyGroceries(groceries):
     return     [{
         "name": "Oats Idli",
         "value": "Oats Idli",
@@ -200,3 +200,6 @@ def findRecipesbyGroceries():
             "image": "https://secure.gravatar.com/avatar/1f1e0a18cf458d170463061bfd17da5c?s=48&d=mm&r=g",
         }
     }]
+
+if __name__ == "__main__":
+    print(findRecipesbyGroceries(["Banana","apple"]))
