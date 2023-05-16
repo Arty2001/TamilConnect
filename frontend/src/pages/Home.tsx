@@ -41,28 +41,10 @@ const useStyles = createStyles((theme) => ({
 }));
 
 export function Home() {
-  const [resto, setResto] = useState();
   const { classes } = useStyles();
 
   const desktop = useMediaQuery("(min-width: 56.25em)");
-
-  useEffect(() => {
-    const fetchResto = async () => {
-      const response = await fetch(
-        "http://172.20.10.2:5000/api/FindResto?grocery=chicken&location=montreal"
-      );
-      const data = await response.json(); //json is the data shared among all
-      setResto(data);
-    };
-    fetchResto();
-  }, [resto]);
-
-  {
-    /* if (!mobile) {
-    return <div> hel</div>;
-  }
-*/
-  }
+  
   return (
     <>
       <div className={desktop ? classes.homePage : classes.homePageMobile}>

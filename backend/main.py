@@ -15,7 +15,7 @@ Session(app)
 @app.route('/') # creating website
 @cross_origin()
 def index():
-    session["groceries"] = [{"banana": False, "apple":False}]
+    session["groceries"] = {"banana": False, "apple":False}
     return render_template('index.html')
 
 @app.route('/api/FindResto')
@@ -29,24 +29,28 @@ def findResto():
 def getRecipes():
     return findRecipesbyGroceries()
 
-@app.route('/api/groceries')
+@app.route('/api/groceries',methods=['GET', 'POST','DELETE'])
 @cross_origin()
 def addGroceries():
     if request.method == 'POST':
         grocery=request.args.get("grocery")
-        session[groceries][grocery]=True
+        session["groceries"][grocery]=True
         return "Submitted"
     if request.method == 'GET':
-        cart = request.args.get("cart", default=True, type=bool) 
+        cart = request.args.get("cart") 
         list_return = []
-        for grocery in session[groceries]:
-            if cart: 
-                if session[groceries][grocery] == True:
+        for grocery in session["groceries"]:
+            if cart == "True": 
+                if session["groceries"][grocery] == True:
                     list_return.append(grocery)
-            else:
-                if session[groceries][grocery] == False     :
+            elif cart == "False":
+                if session["groceries"][grocery] == False:
                     list_return.append(grocery)
         return list_return
+    if request.method == 'DELETE':
+        grocery=request.args.get("grocery")
+        session["groceries"][grocery]=False
+        return "Submitted"
 
 
 if __name__ == '__main__':

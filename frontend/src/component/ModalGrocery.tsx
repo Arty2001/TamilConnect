@@ -5,6 +5,7 @@ import { Modal, Group, Button, ScrollArea } from "@mantine/core";
 import { createStyles } from "@mantine/core";
 import { ArticleCard } from "../component/GroceryItemCard";
 import { InCartCard } from "../component/InCartCard";
+import { useEffect, useState } from "react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
@@ -38,6 +39,19 @@ export function ModalGrocery() {
   const [opened, { open, close }] = useDisclosure(false);
   const { classes } = useStyles();
 
+  const [groceries, setGroceries] = useState([]);
+
+  useEffect(() => {
+    const fetchResto = async () => {
+      const response = await fetch(
+        "http://localhost:5000/api/groceries?cart=True"
+      );
+      const data = await response.json(); //json is the data shared among all
+      setGroceries(data);
+    };
+    fetchResto();
+  }, [groceries]);
+
   return (
     <>
       <Modal
@@ -54,9 +68,6 @@ export function ModalGrocery() {
             <div className={classes.rowOne}>
               <ArticleCard />
             </div>
-            <div className={classes.rowTwo}>
-              <ArticleCard />
-            </div>
           </div>
         </ScrollArea>
       </Modal>
@@ -64,20 +75,9 @@ export function ModalGrocery() {
       <div className={classes.wrapper}>
         <ScrollArea h={400} type="auto" scrollbarSize={20}>
           <div className={classes.rowOne}>
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
-          </div>
-          <div className={classes.rowTwo}>
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
-            <InCartCard />
+            {groceries.map((grocery) => {
+              return <InCartCard grocery={grocery} />
+            })}
           </div>
         </ScrollArea>
         <Button

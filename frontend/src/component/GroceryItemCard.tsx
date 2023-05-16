@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import data from "../data.json";
 import {
   Card,
@@ -30,11 +31,33 @@ data.forEach(obj => {
   });
   */
 
+
+
 export function ArticleCard(): JSX.Element {
   const { classes } = useStyles();
+
+  const [groceries, setGroceries] = useState([]);
+
+  useEffect(() => {
+    const fetchResto = async () => {
+      const response = await fetch(
+        "http://localhost:5000/api/groceries?cart=False"
+      );
+      const data = await response.json(); //json is the data shared among all
+      setGroceries(data);
+    };
+    fetchResto();
+  }, [groceries]);
+
+  async function addGroceries(grocery: string) {
+    const response = await fetch(
+      "http://localhost:5000/api/groceries?grocery=" + grocery, { method: 'POST' }
+    );
+  };
+  
   return (
     <>
-      {data.map((index, nb) => {
+      {groceries.map((grocery) => {
         return (
           <div className={classes.wrapper}>
             <Card
@@ -45,14 +68,14 @@ export function ArticleCard(): JSX.Element {
               className={classes.card}
             >
               <Card.Section>
-                <Image src={index.link} height={160} alt="Item" />
+                <Image src={""} height={160} alt="Item" />
               </Card.Section>
 
               <Group position="apart" mt="md" mb="xs">
-                <Text weight={500}> {index.name}</Text>
+                <Text weight={500}> {grocery}</Text>
 
                 <Badge color="blue" variant="light">
-                  {index.price}
+                  {grocery}
                 </Badge>
               </Group>
 
@@ -63,6 +86,7 @@ export function ArticleCard(): JSX.Element {
                 mt="md"
                 radius="md"
                 className={classes.addToCart}
+                onClick={()=>addGroceries(grocery)}
               >
                 Add To Cart
               </Button>

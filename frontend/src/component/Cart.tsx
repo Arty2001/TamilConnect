@@ -2,6 +2,7 @@
 import { createStyles } from "@mantine/core";
 import { InCartCard } from "../component/InCartCard";
 import { ScrollArea, Button } from "@mantine/core";
+import { useEffect, useState } from "react";
 const useStyles = createStyles((theme) => ({
   wrapper: {
     width: "100%",
@@ -29,24 +30,26 @@ const useStyles = createStyles((theme) => ({
 
 export function Cart() {
   const { classes } = useStyles();
+  const [groceries, setGroceries] = useState([]);
+
+  useEffect(() => {
+    const fetchResto = async () => {
+      const response = await fetch(
+        "http://localhost:5000/api/groceries"
+      );
+      const data = await response.json(); //json is the data shared among all
+      setGroceries(data);
+    };
+    fetchResto();
+  }, [groceries]);
+
   return (
     <div className={classes.wrapper}>
       <ScrollArea h={400} type="auto" scrollbarSize={20}>
         <div className={classes.rowOne}>
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
-        </div>
-        <div className={classes.rowTwo}>
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
-          <InCartCard />
+          {groceries.map((grocery) => {
+            return <InCartCard grocery={grocery} />
+          })}
         </div>
       </ScrollArea>
       <Button variant="light" color="green" fullWidth mt="md" radius="md">
