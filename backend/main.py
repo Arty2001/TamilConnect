@@ -4,6 +4,8 @@ from flask import Flask, flash, request,render_template, Response, redirect, url
 from flask_cors import CORS, cross_origin
 from findRestobyGroceries import globalFunction
 from findRecipesbyGroceries import findRecipesbyGroceries
+from getGroceriesbyReceipt import getGroceriesbyReceipt
+from werkzeug.utils import secure_filename
 from flask_session import Session
 
 
@@ -17,6 +19,20 @@ Session(app)
 def index():
     session["groceries"] = {"banana": False, "apple":False}
     return render_template('index.html')
+
+@app.route('/url_route', methods=['POST'])
+def fileUpload():
+    target= "backend/Receipt" 
+    if not os.path.isdir(target):
+        os.makedirs(target)
+    file = request.files['file_from_react'] 
+    filename = secure_filename(file.filename)
+    destination="/".join([target, "image.jpg"])
+    file.save(destination)
+    session['uploadFilePath']=destination
+    response={"FileUploaded":"sucess"}
+    session["groceries"] = getGroceriesbyReceipt(session["groceries"])
+    return response
 
 @app.route('/api/FindResto')
 @cross_origin()

@@ -8,7 +8,7 @@ import { AddItemsContainer } from "../component/GroceryAddItems";
 import { ModalGrocery } from "../component/ModalGrocery";
 import { InCartCard } from "../component/InCartCard";
 import { Cart } from "../component/Cart";
-import { createStyles } from "@mantine/core";
+import { Stack, createStyles } from "@mantine/core";
 import { useMediaQuery } from "@mantine/hooks";
 
 const useStyles = createStyles((theme) => ({
@@ -46,20 +46,10 @@ export function Home() {
   const desktop = useMediaQuery("(min-width: 56.25em)");
   
   return (
-    <>
-      <div className={desktop ? classes.homePage : classes.homePageMobile}>
-        <div className={classes.Welcome}>
+    <Stack spacing="lg" justify="center" align="center">
           <HeroTitle />
-        </div>
-
-        {/* <p>{resto}</p> removed this idk what it does */}
-        <div className={classes.Carousel}>
           <DaCarousel />
-        </div>
-        <div className={classes.ModalGrocery}>
           <ModalGrocery />
-        </div>
-      </div>
-    </>
+    </Stack>
   );
 }

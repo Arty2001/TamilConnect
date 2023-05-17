@@ -8,7 +8,6 @@ const useStyles = createStyles((theme) => ({
     backgroundColor:
       theme.colorScheme === "dark" ? theme.colors.dark[8] : theme.white,
 
-    display: "flex",
     alignItems: "center",
     marginTop: "1px",
     width: "100%",

@@ -1,15 +1,16 @@
 import { useDisclosure } from "@mantine/hooks";
-import { Modal, Group, Button, ScrollArea } from "@mantine/core";
+import { Modal, Group, Button, ScrollArea, Title } from "@mantine/core";
 
 //import { Container } from "@mantine/core";
 import { createStyles } from "@mantine/core";
 import { ArticleCard } from "../component/GroceryItemCard";
 import { InCartCard } from "../component/InCartCard";
 import { useEffect, useState } from "react";
+import { IconUpload } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
   wrapper: {
-    width: "100%",
+    width: "90%",
     //float: "right",
     display: "flex",
     flexDirection: "column",
@@ -19,6 +20,11 @@ const useStyles = createStyles((theme) => ({
     borderRadius: "0.5rem",
     boxSizing: "border-box",
     padding: "1.25rem",
+    transition: "1s",
+
+    '&:hover': {
+      boxShadow: "0px 10px 20px 20px rgba(0, 0, 0, 0.17)",
+    }
   },
   rowOne: {
     display: "flex",
@@ -32,6 +38,27 @@ const useStyles = createStyles((theme) => ({
   },
   Modal: {
     width: "1000px",
+  },
+
+  card: {
+    textAlign: "left",
+    transformOrigin: "50% 50%",
+    transformStyle: "preserve-3d",
+    minWidth: "595px",
+    width: "90%",
+    height: "520px",
+    marginBottom: "10px",
+  },
+  titles: {
+    color: "#3e3e42",
+    fontSize: "32px",
+    fontWeight: 800,
+    letterSpacing: "-1px",
+    marginBottom: "10px"
+  },
+  title: {
+    color: "#228be6",
+    fontSize: "16px",
   },
 }));
 
@@ -52,6 +79,24 @@ export function ModalGrocery() {
     fetchResto();
   }, [groceries]);
 
+  async function uploadFile(e: any) {
+    const file = e.target.files[0];
+    if (file != null) {
+      const data = new FormData();
+      data.append("file_from_react", file);
+
+      let response = await fetch("/url_route", {
+        method: "post",
+        body: data,
+      });
+      let res = await response.json();
+      
+      if (res.status !== 1) {
+        alert("Groceries Uploaded");
+      }
+    }
+  }
+
   return (
     <>
       <Modal
@@ -63,22 +108,45 @@ export function ModalGrocery() {
         size="70%"
         centered
       >
-        <ScrollArea h={400} type="auto" scrollbarSize={20}>
-          <div className={classes.wrapper}>
-            <div className={classes.rowOne}>
+        <ScrollArea h={375} type="auto" scrollbarSize={20}>
+          <div style={{width:"100%"}}className={classes.wrapper}>
+            <Group>
               <ArticleCard />
-            </div>
+            </Group>
           </div>
         </ScrollArea>
+        <input
+          type="file"
+          onChange={uploadFile}
+          style={{ display: "none" }}
+          id="contained-button-file"
+        />
+        <label htmlFor="contained-button-file">
+        <Button
+          variant="light"
+          color="green"
+          fullWidth
+          mt="md"
+          radius="md"
+          leftIcon={<IconUpload/>}
+          component="span"
+        >
+          Upload Receipt
+        </Button>
+        </label>
       </Modal>
 
+
+
       <div className={classes.wrapper}>
-        <ScrollArea h={400} type="auto" scrollbarSize={20}>
-          <div className={classes.rowOne}>
+        <Title order={5} className={classes.title}>Groceries</Title>
+        <Title order={1} className={classes.titles} >My Cart</Title>
+        <ScrollArea h={300} type="auto" scrollbarSize={20}>
+          <Group>
             {groceries.map((grocery) => {
               return <InCartCard grocery={grocery} />
             })}
-          </div>
+          </Group>
         </ScrollArea>
         <Button
           onClick={open}

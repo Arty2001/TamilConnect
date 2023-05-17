@@ -21,7 +21,7 @@ function DaCard() {
   const { classes } = useStyles();
 
   return (
-    <div className={classes.wrapper}>
+    <div className={classes.wrapper} >
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Card.Section>
           <Image
@@ -38,7 +38,7 @@ function DaCard() {
           </Badge>
         </Group>
 
-        <Text size="sm" color="dimmed">
+        <Text size="sm" color="dimmed" lineClamp={3}>
           Kottu roti is a Sri Lankan dish consisting of chopped roti, a meat
           curry dish of choice, along with scrambled egg, onions, and chillies.
         </Text>
@@ -72,7 +72,7 @@ function DaCard2() {
           </Badge>
         </Group>
 
-        <Text size="sm" color="dimmed">
+        <Text size="sm" color="dimmed" lineClamp={3}>
           A dosai is made from a fermented batter of ground black lentils and
           rice. Dosas are served hot, often with chutney and sambar.
         </Text>
@@ -106,7 +106,7 @@ function DaCard3() {
           </Badge>
         </Group>
 
-        <Text size="sm" color="dimmed">
+        <Text size="sm" color="dimmed" lineClamp={3}>
           Mutton curry is a dish that is prepared from goat meat and vegetables
           in spicy onion tomato gravy.
         </Text>
@@ -140,7 +140,7 @@ function DaCard4() {
           </Badge>
         </Group>
 
-        <Text size="sm" color="dimmed">
+        <Text size="sm" color="dimmed" lineClamp={3}>
           Idiyappam consists of rice flour pressed into noodles, laid into a
           flat disc-like shape and steamed.
         </Text>
