@@ -1,4 +1,4 @@
-def findRecipesbyGroceries(groceries):
+def findRecipesbyGroceries():
     return     [{
         "name": "Oats Idli",
         "value": "Oats Idli",
@@ -201,5 +201,5 @@ def findRecipesbyGroceries(groceries):
         }
     }]
 
-if __name__ == "__main__":
-    print(findRecipesbyGroceries(["Banana","apple"]))
+#if __name__ == "__main__":
+#    print(findRecipesbyGroceries(["Banana","apple"]))
