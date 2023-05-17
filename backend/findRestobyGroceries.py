@@ -10,6 +10,7 @@ data=json.load(response) # converting location to python data
 
 
 
+
 coordinatesString=data["loc"] # collecting the latitude and longitude of user
 tempUserLatitude=coordinatesString[0:7]
 tempUserLongitude=coordinatesString[8:16]
