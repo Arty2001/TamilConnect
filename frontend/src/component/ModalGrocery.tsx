@@ -90,7 +90,7 @@ export function ModalGrocery() {
         body: data,
       });
       let res = await response.json();
-      
+
       if (res.status !== 1) {
         alert("Groceries Uploaded");
       }
@@ -109,11 +109,9 @@ export function ModalGrocery() {
         centered
       >
         <ScrollArea h={375} type="auto" scrollbarSize={20}>
-          <div style={{width:"100%"}}className={classes.wrapper}>
-            <Group>
+          <Group spacing={"lg"}>
               <ArticleCard />
-            </Group>
-          </div>
+          </Group>
         </ScrollArea>
         <input
           type="file"
@@ -142,7 +140,7 @@ export function ModalGrocery() {
         <Title order={5} className={classes.title}>Groceries</Title>
         <Title order={1} className={classes.titles} >My Cart</Title>
         <ScrollArea h={300} type="auto" scrollbarSize={20}>
-          <Group>
+          <Group spacing={"lg"}>
             {groceries.map((grocery) => {
               return <InCartCard grocery={grocery} />
             })}

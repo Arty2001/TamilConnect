@@ -27,7 +27,7 @@ function InCartCard(props: { grocery: string }) {
   };
 
   return (
-    <div className={classes.wrapper}>
+    <div>
       <Card shadow="sm" padding="lg" radius="md" withBorder>
         <Card.Section>
           <Image

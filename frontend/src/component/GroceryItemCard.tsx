@@ -17,9 +17,6 @@ const useStyles = createStyles((theme) => ({
     display: "flex",
     flexDirection: "column",
   },
-  addToCart: {},
-
-  card: {},
 }));
 
 //let JsonString = data;
@@ -59,13 +56,11 @@ export function ArticleCard(): JSX.Element {
     <>
       {groceries.map((grocery) => {
         return (
-          <div className={classes.wrapper}>
             <Card
               shadow="sm"
               padding="lg"
               radius="md"
               withBorder
-              className={classes.card}
             >
               <Card.Section>
                 <Image src={""} height={160} alt="Item" />
@@ -85,13 +80,11 @@ export function ArticleCard(): JSX.Element {
                 fullWidth
                 mt="md"
                 radius="md"
-                className={classes.addToCart}
                 onClick={()=>addGroceries(grocery)}
               >
                 Add To Cart
               </Button>
             </Card>
-          </div>
         );
       })}
     </>
