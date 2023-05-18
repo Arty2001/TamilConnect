@@ -2,7 +2,7 @@ import React from 'react';
 import { HeaderTabs } from './component/HeaderTabs';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Home } from "./pages/Home";
-import { FindPage } from "./pages/FindPage";
+import  FindPage  from "./pages/FindPage";
 import { Recipes } from "./pages/Recipes";
 import { Flex, MantineProvider } from '@mantine/core';
 
