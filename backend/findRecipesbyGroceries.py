@@ -74,9 +74,6 @@ dictionaryRecipes = [   #Database for the main recipes
             "image": "N/A"
         }
     },
-    
-
-    
     ]
 
 
@@ -95,18 +92,23 @@ def findRecipesbyGroceries(groceries):
         ingredient["Matching Percentage"]=matchingPercentage #adding percentag value to dictionary key
         matchingIngredients.append({
             "name": ingredient["name"],
-            "Match percentage": round(matchingPercentage,2)
+            "Match percentage": round(matchingPercentage,2),
+            "ingredients": ingredient["ingredients"]
         })
 
     
     #sortedRecipes=sorted(dictionaryRecipes,key=lambda d: d["Matching Percentage"], reverse=True) #sort recipes from highest match to lowest match
 
     sortedRecipes=sorted(matchingIngredients,key=lambda d: d["Match percentage"], reverse=True)
+
+
+
        
-    return sortedRecipes
+    return [{"name": recipe["name"], "ingredients": recipe["ingredients"]} for recipe in sortedRecipes]
+    
+
 
 
 if __name__ == "__main__":
-    print(findRecipesbyGroceries(["tomato"]))
+    print(findRecipesbyGroceries(["oat","water","rava","yogurt","baking soda","coriander","carrot","salt"]))
 
-# "oat","water","rava","yogurt","baking soda","coriander","carrot","salt"
