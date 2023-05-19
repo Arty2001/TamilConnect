@@ -74,9 +74,6 @@ dictionaryRecipes = [   #Database for the main recipes
             "image": "N/A"
         }
     },
-    
-
-    
     ]
 
 
