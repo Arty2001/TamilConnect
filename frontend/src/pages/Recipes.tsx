@@ -31,18 +31,22 @@ import {
 } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
-  shadowContainer: {
-    boxShadow: "5px 5px 10px 10px",
-    color: "grey",
+  largeContainer: {
+    //boxShadow: "5px 5px 10px 10px",
+    borderStyle: "solid",
     margin: "2.5em",
     borderRadius: "3em",
   },
+
   container: {
-    display: "flex",
-    flexDirection: "column",
-    margin: "2.5em",
+    //display: "flex",
+    //flexDirection: "column",
     color: "black",
+    marginLeft: "1em",
+    marginRight: "1em",
+    maxWidth: "100%",
   },
+  grid: {},
 
   title: {
     alignSelf: "baseline",
@@ -102,30 +106,19 @@ const useStyles = createStyles((theme) => ({
   nutritionItem: {
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#e7f5ff", //make right blue
+    backgroundColor: "#e7f5ff",
 
     color: "black",
     padding: "0.5em 0.7em",
-    //display: "inline-block",
     fontSize: "14px",
     margin: "4px 2px",
     height: "8em",
     borderRadius: "35px",
   },
 
-  nutritionCircle: {
-    //can delete this i dont use it
-    display: "flex",
-    alignItems: "center",
-    width: "20px",
-    height: "20px",
-    borderRadius: "50%",
-    backgroundColor: "white",
-  },
-
   foodImage: {
     marginBottom: "3em",
-    marginTop: "6em",
+    marginTop: "3em",
   },
   instructionNumbers: {
     color: "black",
@@ -134,8 +127,9 @@ const useStyles = createStyles((theme) => ({
     backgroundColor: "#e7f5ff",
     height: "30em",
   },
-  Iframe: {
-    marginBottom: "2em", //this doesnt work
+  videoTutorial: {
+    marginBottom: "1em",
+    marginTop: "1em",
   },
 }));
 export function Recipes() {
@@ -282,17 +276,17 @@ export function Recipes() {
     ];
 
     return (
-      <div className={classes.shadowContainer}>
+      <div className={classes.largeContainer}>
+        <Center className={classes.title}>
+          <Title order={1}>{searchParams.get("recipe")}</Title>
+        </Center>
+        <Center className={classes.author}>
+          <Title order={5}>By Dhana Rameshan</Title>
+        </Center>
         <Container size="xl" px={0} className={classes.container}>
-          <Grid columns={24}>
+          <Grid columns={24} className={classes.grid}>
             <Grid.Col span={16}>
               <>
-                <Center className={classes.title}>
-                  <Title order={1}>{searchParams.get("recipe")}</Title>
-                </Center>
-                <Center className={classes.author}>
-                  <Title order={5}>By Dhana Rameshan</Title>
-                </Center>
                 <div className={classes.pillFacts}>
                   <div className={classes.pillFact}>
                     {" "}
@@ -394,18 +388,19 @@ export function Recipes() {
                   })}
                 </List>
 
-                <Title order={3}>Tutorial</Title>
+                <div className={classes.videoTutorial}>
+                  <Title order={3}>Tutorial</Title>
 
-                <AspectRatio ratio={16 / 9}>
-                  <iframe
-                    className={classes.Iframe}
-                    src="https://www.youtube.com/embed/Dorf8i6lCuk"
-                    title="YouTube video player"
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                  />
-                </AspectRatio>
+                  <AspectRatio ratio={1080 / 620}>
+                    <iframe
+                      src="https://www.youtube.com/embed/Dorf8i6lCuk"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                      allowFullScreen
+                    />
+                  </AspectRatio>
+                </div>
               </>
             </Grid.Col>
             <Grid.Col span={8}>
