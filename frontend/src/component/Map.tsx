@@ -4,7 +4,7 @@ import { Input, Tooltip } from '@mantine/core';
 import { TextInput, TextInputProps, ActionIcon, useMantineTheme } from '@mantine/core';
 import { IconHeart } from '@tabler/icons-react';
 import { Card, Image, Text, Group, Badge, Button, createStyles, Stack, rem,} from '@mantine/core';
-
+import {BsThreeDots} from '@tabler/icons-react';
 declare global {
   interface Window {
     google: any;
@@ -69,9 +69,21 @@ export function MapCard() {
                 <Text fz="lg">9:00-20:00</Text>
               </Stack>
             </Group>
+            <Group>
+          <Badge color ="green" radius="md">Artichoke</Badge>
+          <Badge color ="green" radius="md">Asparagus</Badge>
+          <Badge color ="green" radius="md">Eggplant</Badge>
+          <Badge color ="green" radius="md">Avocado</Badge>
+          <Badge color ="green" radius="md">Beet</Badge>
+          <Badge color ="green" radius="md">Bok Choy</Badge>
+          <Badge color ="green" radius="md">Broccoli</Badge>
+          <Badge color ="green" radius="md">Brussels Sprout</Badge>
+          <BsThreeDots size = {24} />
+          </Group>
 
           
           </Stack>
+          
         </Group>
     </Card>
 
